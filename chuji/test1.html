@@ -1,9 +1,103 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-		<title>let和const</title>
+		<title>关于Promise</title>
 	</head>
+
 	<body>
+		<script type="text/javascript">
+			/*resolve和reject
+			 * 1.resolve方法可以使Promise对象的状态改变成成功，同时传递一个参数用于后续成功后的操作
+			 * 2.reject方法则是将Promise对象的状态改变为失败，同时将错误的信息传递到后续错误处理的操作
+			 * 
+			 * 
+			 * */
+			/*function HelloWorld(val){
+				return new Promise(function(resolve,reject){
+					if (val) {
+						resolve("Hello World!");
+					} else{
+						reject("Good bye!");
+					}
+				});
+			}
+			HelloWorld(true).then(function(message){
+				alert(message);
+			},function(error){
+				alert(error);
+			})*/
+
+			//then和catch
+
+			/*	function printHello(ready) {
+					return new Promise(function(resolve, reject) {
+						if(ready) {
+							resolve("Hello");
+						} else {
+							reject("Good bye!");
+						}
+					});
+				}
+
+				function printWorld() {
+					alert("World");
+				}
+
+				function printExclamation() {
+					alert("!");
+				}
+
+				printHello(true)
+					.then(function(message) {
+						alert(message);
+					})
+					.then(printWorld)
+					.then(printExclamation);*/
+			//catch
+			/*function printHello(ready){
+				return new Promise(function(resolve,reject){
+					if (ready) {
+						resolve('Hello');
+					} else{
+						reject('Good bye!');
+					}
+				})
+			}
+			
+			printHello(true).then(function(message){
+				return message;
+				
+			}).then(function(message){
+				return message+ 'World';
+				
+			}).then(function(message){
+				return message+ "!";
+			}).then(function(message){
+				alert(message);
+			})*/
+			function printHello(ready) {
+				return new Promise(function(resolve, reject) {
+					if(ready) {
+						resolve("Hello");
+					} else {
+						reject("Good bye!");
+					}
+				});
+			}
+
+			printHello(true).then(function(message) {
+				return message;
+			}).then(function(message) {
+				return message + ' World';
+			}).then(function(message) {
+				return message + '!';
+			}).then(function(message) {
+				alert(message);
+			});
+		</script>
+
 	</body>
+
 </html>
